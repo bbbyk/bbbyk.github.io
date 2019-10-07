@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="extern 小结1.变量共享C++语言支持分离式编译机制，该机制允许将程序分割为若干个文件，每个文件可被独立编译。为了将程序分为许多文件，则需要在文件中共享代码，例如一个文件的代码可能需要另一个文件中中定义的变量。为了支持这种特性，C++支持声明和定义分开。变量的声明定义，一个文件如果要使用别处定义的名字则必须先声明。定义则只有一次。声明一个共享变量 extern int i; 定义变量exte">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/10/07/hello-world/index.html">
+<meta property="og:title" content="bbbyk&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/2019/10/07/extern 小结/index.html">
 <meta property="og:site_name" content="bbbyk&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="extern 小结1.变量共享C++语言支持分离式编译机制，该机制允许将程序分割为若干个文件，每个文件可被独立编译。为了将程序分为许多文件，则需要在文件中共享代码，例如一个文件的代码可能需要另一个文件中中定义的变量。为了支持这种特性，C++支持声明和定义分开。变量的声明定义，一个文件如果要使用别处定义的名字则必须先声明。定义则只有一次。声明一个共享变量 extern int i; 定义变量exte">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-07T08:45:39.818Z">
+<meta property="og:updated_time" content="2019-06-14T07:55:13.436Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-  <link rel="canonical" href="http://yoursite.com/2019/10/07/hello-world/">
+<meta name="twitter:title" content="bbbyk&#39;s Blog">
+<meta name="twitter:description" content="extern 小结1.变量共享C++语言支持分离式编译机制，该机制允许将程序分割为若干个文件，每个文件可被独立编译。为了将程序分为许多文件，则需要在文件中共享代码，例如一个文件的代码可能需要另一个文件中中定义的变量。为了支持这种特性，C++支持声明和定义分开。变量的声明定义，一个文件如果要使用别处定义的名字则必须先声明。定义则只有一次。声明一个共享变量 extern int i; 定义变量exte">
+  <link rel="canonical" href="http://yoursite.com/2019/10/07/extern 小结/">
 
 
 <script id="page-configurations">
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title>Hello World | bbbyk's Blog</title>
+  <title> | bbbyk's Blog</title>
   
 
 
@@ -205,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/extern 小结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bing Yaokun">
@@ -217,7 +217,7 @@
       <meta itemprop="name" content="bbbyk's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Hello World
+        <h1 class="post-title" itemprop="name headline">
 
           
         </h1>
@@ -233,8 +233,20 @@
                 
               
 
-              <time title="Created: 2019-10-07 16:45:39" itemprop="dateCreated datePublished" datetime="2019-10-07T16:45:39+08:00">2019-10-07</time>
+              <time title="Created: 2019-10-07 17:53:03" itemprop="dateCreated datePublished" datetime="2019-10-07T17:53:03+08:00">2019-10-07</time>
             </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-06-14 15:55:13" itemprop="dateModified" datetime="2019-06-14T15:55:13+08:00">2019-06-14</time>
+              </span>
+            
           
 
           
@@ -248,19 +260,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="extern-小结"><a href="#extern-小结" class="headerlink" title="extern 小结"></a>extern 小结</h1><h2 id="1-变量共享"><a href="#1-变量共享" class="headerlink" title="1.变量共享"></a>1.变量共享</h2><p>C++语言支持分离式编译机制，该机制允许将程序分割为若干个文件，每个文件可被独立编译。为了将程序分为许多文件，则需要在文件中共享代码，例如一个文件的代码可能需要另一个文件中中定义的变量。<br>为了支持这种特性，C++支持声明和定义分开。变量的声明定义，一个文件如果要使用别处定义的名字则必须先声明。定义则只有一次。<br>声明一个共享变量 extern int i; 定义变量extern int i 和 extern int i = 1是等价的。  </p>
+<h2 id="2-多个文件中共享const"><a href="#2-多个文件中共享const" class="headerlink" title="2.多个文件中共享const"></a>2.多个文件中共享const</h2><p>有这样一种情况，有一个常量不是常量表达式。但又确实有必要在文件中共享防止重复的创建对象。这个时候需要在一个文件中定义 const，然后在多个文件中使用。<br>方法是对于const的声明和定义都使用extern关键字，而不是在定义的时候不加extern。  </p>
+<p>总结： 在常量与变量的extern用法中，声明与定义都使用extern就可以避免其间的差异。  </p>
 
     </div>
 
@@ -277,13 +279,17 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
+                <a href="/2019/10/07/oop细节/" rel="next" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+              
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/10/07/oop细节/" rel="prev" title="">
+                <a href="/2019/10/07/delete 和 delete[]/" rel="prev" title="">
                    <i class="fa fa-chevron-right"></i>
                 </a>
               
@@ -331,7 +337,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#extern-小结"><span class="nav-number">1.</span> <span class="nav-text">extern 小结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-变量共享"><span class="nav-number">1.1.</span> <span class="nav-text">1.变量共享</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-多个文件中共享const"><span class="nav-number">1.2.</span> <span class="nav-text">2.多个文件中共享const</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->

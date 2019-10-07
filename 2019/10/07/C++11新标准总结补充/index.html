@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="C++11新标准总结补充委托构造函数decltype有时我们希望从表达式的类型推断出要定义的变量类型，但是不想用该表达式的值初始化变量（如果要初始化就用auto了）。为了满足这一需求，C++11新标准引入了decltype类型说明符，它的作用是选择并返回操作数的数据类型，在此过程中，编译器分析表达式并得到它的类型，却不实际计算表达式的值。decltype和auto都可以用来推断类型，但是二者有几处">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/10/07/hello-world/index.html">
+<meta property="og:title" content="C++11新标准总结补充">
+<meta property="og:url" content="http://yoursite.com/2019/10/07/C++11新标准总结补充/index.html">
 <meta property="og:site_name" content="bbbyk&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="C++11新标准总结补充委托构造函数decltype有时我们希望从表达式的类型推断出要定义的变量类型，但是不想用该表达式的值初始化变量（如果要初始化就用auto了）。为了满足这一需求，C++11新标准引入了decltype类型说明符，它的作用是选择并返回操作数的数据类型，在此过程中，编译器分析表达式并得到它的类型，却不实际计算表达式的值。decltype和auto都可以用来推断类型，但是二者有几处">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-07T08:45:39.818Z">
+<meta property="og:updated_time" content="2019-10-07T10:20:53.747Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-  <link rel="canonical" href="http://yoursite.com/2019/10/07/hello-world/">
+<meta name="twitter:title" content="C++11新标准总结补充">
+<meta name="twitter:description" content="C++11新标准总结补充委托构造函数decltype有时我们希望从表达式的类型推断出要定义的变量类型，但是不想用该表达式的值初始化变量（如果要初始化就用auto了）。为了满足这一需求，C++11新标准引入了decltype类型说明符，它的作用是选择并返回操作数的数据类型，在此过程中，编译器分析表达式并得到它的类型，却不实际计算表达式的值。decltype和auto都可以用来推断类型，但是二者有几处">
+  <link rel="canonical" href="http://yoursite.com/2019/10/07/C++11新标准总结补充/">
 
 
 <script id="page-configurations">
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title>Hello World | bbbyk's Blog</title>
+  <title>C++11新标准总结补充 | bbbyk's Blog</title>
   
 
 
@@ -205,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/C++11新标准总结补充/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bing Yaokun">
@@ -217,7 +217,7 @@
       <meta itemprop="name" content="bbbyk's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Hello World
+        <h1 class="post-title" itemprop="name headline">C++11新标准总结补充
 
           
         </h1>
@@ -233,7 +233,24 @@
                 
               
 
-              <time title="Created: 2019-10-07 16:45:39" itemprop="dateCreated datePublished" datetime="2019-10-07T16:45:39+08:00">2019-10-07</time>
+              <time title="Created: 2019-10-07 18:16:22 / Modified: 18:20:53" itemprop="dateCreated datePublished" datetime="2019-10-07T18:16:22+08:00">2019-10-07</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
+
+                
+                
+              
             </span>
           
 
@@ -248,19 +265,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h1 id="C-11新标准总结补充"><a href="#C-11新标准总结补充" class="headerlink" title="C++11新标准总结补充"></a>C++11新标准总结补充</h1><h2 id="委托构造函数"><a href="#委托构造函数" class="headerlink" title="委托构造函数"></a>委托构造函数</h2><h2 id="decltype"><a href="#decltype" class="headerlink" title="decltype"></a>decltype</h2><p>有时我们希望从表达式的类型推断出要定义的变量类型，但是不想用该表达式的值初始化变量（如果要初始化就用auto了）。为了满足这一需求，C++11新标准引入了decltype类型说明符，它的作用是选择并返回操作数的数据类型，在此过程中，编译器分析表达式并得到它的类型，却不实际计算表达式的值。<br>decltype和auto都可以用来推断类型，但是二者有几处明显的差异：1.auto忽略顶层const，decltype保留顶层const；2.对引用操作，auto推断出原有类型，decltype推断出引用；3.对解引用操作，auto推断出原有类型，decltype推断出引用；4.auto推断时会实际执行，decltype不会执行，只做分析。总之在使用中过程中和const、引用和指针结合时需要特别小心。</p>
+<h2 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.cnblogs.com/KunLunSu/p/7861330.html</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>注意在使用auto的几个特殊情况（去除语义）  </p>
+<ul>
+<li><p>如果初始化表达式是引用，则去除引用语义。</p>
+</li>
+<li><p>如果初始化表达式为const或volatile（或者两者兼有），则除去const/volatile语义。</p>
+</li>
+<li><p>如果auto关键字带上&amp;号，则不去除const语意。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const int a2 = 10;</span><br><span class="line">auto &amp;b2 = a2;//因为auto带上&amp;，故不去除const，b2类型为const int</span><br><span class="line">b2 = 10; //非法</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化表达式为数组时，auto关键字推导类型为指针。</p>
+</li>
+<li><p>函数或者模板参数不能被声明为auto。　</p>
+</li>
+<li><p>时刻要注意auto并不是一个真正的类型。auto仅仅是一个占位符，它并不是一个真正的类型，不能使用一些以类型为操作数的操作符，如sizeof或者typeid。</p>
+</li>
+</ul>
 
     </div>
 
@@ -277,15 +300,15 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
+                <a href="/2019/10/07/使用using改变个别成员的可访问性/" rel="next" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+              
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/10/07/oop细节/" rel="prev" title="">
-                   <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -331,7 +354,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-11新标准总结补充"><span class="nav-number">1.</span> <span class="nav-text">C++11新标准总结补充</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#委托构造函数"><span class="nav-number">1.1.</span> <span class="nav-text">委托构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#decltype"><span class="nav-number">1.2.</span> <span class="nav-text">decltype</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#auto"><span class="nav-number">1.3.</span> <span class="nav-text">auto</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->

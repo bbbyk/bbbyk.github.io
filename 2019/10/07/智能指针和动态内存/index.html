@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="智能指针防止使用动态内存的时候出现内存泄露和非法内存指针的出现，智能指针类能够自动的释放所指向的对象。智能指针的三个类 shared_ptr允许多个指针指向同一个对象，unique_ptr独占指向的对象，以及weak_ptr指向shared_ptr所管理的对象。   1.shared_ptr类是一个模板类，使用方法与普通的指针使用方法相同。   123// definedshared_ptr&amp;lt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bbbyk&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/2019/10/07/智能指针和动态内存/index.html">
+<meta property="og:site_name" content="bbbyk&#39;s Blog">
+<meta property="og:description" content="智能指针防止使用动态内存的时候出现内存泄露和非法内存指针的出现，智能指针类能够自动的释放所指向的对象。智能指针的三个类 shared_ptr允许多个指针指向同一个对象，unique_ptr独占指向的对象，以及weak_ptr指向shared_ptr所管理的对象。   1.shared_ptr类是一个模板类，使用方法与普通的指针使用方法相同。   123// definedshared_ptr&amp;lt">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-14T09:06:06.683Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="bbbyk&#39;s Blog">
+<meta name="twitter:description" content="智能指针防止使用动态内存的时候出现内存泄露和非法内存指针的出现，智能指针类能够自动的释放所指向的对象。智能指针的三个类 shared_ptr允许多个指针指向同一个对象，unique_ptr独占指向的对象，以及weak_ptr指向shared_ptr所管理的对象。   1.shared_ptr类是一个模板类，使用方法与普通的指针使用方法相同。   123// definedshared_ptr&amp;lt">
+  <link rel="canonical" href="http://yoursite.com/2019/10/07/智能指针和动态内存/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title> | bbbyk's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">bbbyk's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/智能指针和动态内存/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bing Yaokun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bbbyk's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-10-07 17:53:03" itemprop="dateCreated datePublished" datetime="2019-10-07T17:53:03+08:00">2019-10-07</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-14 17:06:06" itemprop="dateModified" datetime="2019-08-14T17:06:06+08:00">2019-08-14</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h1><p>防止使用动态内存的时候出现内存泄露和非法内存指针的出现，智能指针类能够自动的释放所指向的对象。<br>智能指针的三个类 shared_ptr允许多个指针指向同一个对象，unique_ptr独占指向的对象，以及weak_ptr指向shared_ptr所管理的对象。  </p>
+<h2 id="1-shared-ptr类"><a href="#1-shared-ptr类" class="headerlink" title="1.shared_ptr类"></a>1.shared_ptr类</h2><p>是一个模板类，使用方法与普通的指针使用方法相同。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// defined</span><br><span class="line">shared_ptr&lt;string&gt; p1;</span><br><span class="line">shared_ptr&lt;list&lt;int&gt;&gt; p2;</span><br></pre></td></tr></table></figure>
+
+<p>类中的get()方法要小心使用，返回保存的指针，但要使用的时候一定要确定智能指针没有释放对象。  </p>
+<p>make_shared&lt; Type &gt; (args)函数 在动态内存中定义并初始化，返回一个shared_ptr类型，通常使用auto类型来定义。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auto p = make_shared&lt;vector&lt;string&gt;&gt;();// 返回shared_ptr</span><br></pre></td></tr></table></figure>
+
+<p>shared_ptr中有一个计数器，拷贝这个智能指针时计数器就递增。当这个智能指针离开或者被赋予新值就递减。<br>shared_ptr自动摧毁所管理的对象调用对应的析构函数。  </p>
+<h2 id="2-动态内存和智能指针使用规范"><a href="#2-动态内存和智能指针使用规范" class="headerlink" title="2. 动态内存和智能指针使用规范"></a>2. 动态内存和智能指针使用规范</h2><ul>
+<li><p>使用new动态分配内置类型的对象时末尾添加<strong>()</strong>值初始化，不添加是默认初始化，通常是未定义的。  </p>
+</li>
+<li><p>delete之后以前相关的指针也不能再使用了，同常是在相应指针要摧毁时使用 delete释放内存。否则要手动将存储了相应指针的变量置空。  </p>
+</li>
+<li><p>shared_ptr和 new可以结合使用<br>shared_prt的构造函数是 explicit 声明，不能将一个内置指针隐式转化成一个智能指针。但是可以通过shared_ptr的构造函数显示传入。如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shared_ptr&lt;int&gt; p(new int(2014)); // 里外类型保持一致</span><br><span class="line">// shared_ptr&lt;T&gt; p(q, d) 定义p将使用可调用对象d来替代delete</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不要混合使用普通指针和智能指针，使用内置指针来访问一个智能指针所负责的对象是很危险的，我们不知道对象何时被摧毁。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void process(shared_ptr&lt;int&gt; ptr)&#123;</span><br><span class="line">    //  使用ptr</span><br><span class="line">&#125; // ptr摧毁  引用计数--</span><br><span class="line"></span><br><span class="line">case 1:</span><br><span class="line">shared_ptr&lt;int&gt; p (new int(42)); //引用计数1</span><br><span class="line">process(p); // p拷贝给ptr 计数2</span><br><span class="line">int i =  *p; // 正确 在结束process函数和引用计数为1</span><br><span class="line"></span><br><span class="line">caes2:</span><br><span class="line">int *x(new int (1024)); // 危险情况，x是普通指针接下来与智能指针混用</span><br><span class="line">process(shared_ptr&lt;int&gt;(x)); // 合法，但内存被释放</span><br><span class="line">int j = *x; // 实参临时变量结束 x 被摧毁</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不能使用get初始化另一个智能指针或为智能指针赋值<br>get函数返回内置指针，指向智能指针的管理对象。拿到这个内置指针后我们不能对其<strong>进行delete操作</strong>和<strong>以此指针初始化另一个新的智能指针</strong>。  </p>
+</li>
+<li><p>智能指针能确保抛出异常时也能成功释放内存。抛出异常时没有相应的catch则会结束这个函数，出了作用域智能指针的计数器会–。相对的，如果使用的是内置指针，很可能无法执行到delete的语句而造成内存再也无法释放了。  </p>
+</li>
+<li><p>如果使用智能指针管理的资源不是new分配的内存，记住传递给它一个删除器。  </p>
+</li>
+</ul>
+<h2 id="3-unique-ptr类"><a href="#3-unique-ptr类" class="headerlink" title="3.unique_ptr类"></a>3.unique_ptr类</h2><p>只能有一个unique_ptr类指向一个给定的对象，当unique_ptr被销毁时，他所指向的对象也被销毁。所以unique_ptr不支持拷贝和赋值操作。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">u.release() // u放弃对指针的控制权，返回指针并将u置空(内存不释放)</span><br><span class="line">u.reset() // 释放u指向的对象</span><br><span class="line">u.reset(q) // 内置指针q，u指向q并释放原内存</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">unique_ptr没有拷贝和赋值，但可以用以上的函数实现指针所有权的转移</span><br></pre></td></tr></table></figure>
+
+<p>// 所有权p1给p2<br>unique_ptr<string> p2(p1.release());<br>// p2给p3并释放原有内存<br>p2.reset(p3.release()); // reset释放p2原来指向的内存</string></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 传递unique_ptr参数和返回unique_ptr</span><br><span class="line">虽然说不能拷贝和赋值unique_ptr， 但有一个例外：**我们可以拷贝和赋值一个将要被摧毁的unqiue_ptr**。最常见的是从函数返回一个unique_ptr。(编译器知道将要返回的对象要被摧毁，使用的实际上是移动拷贝)</span><br></pre></td></tr></table></figure>
+
+<p>unique_ptr<int> clone(int p) {</int></p>
+<pre><code>return unique_ptr&lt;int&gt;(new int(p));</code></pre><p>}</p>
+<p>// 也可以返回局部变量<br>unique_ptr<int> clone(int p) {<br>    unique_ptr<int> ret(new int(p));<br>    // …<br>    return ret;<br>}</int></int></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 4.waek_ptr类</span><br><span class="line">weak_ptr是一种**不控制所指向对象生存期的智能指针**，指向一个shared_ptr对象，是**弱共享对象**。  </span><br><span class="line">绑定后不会改变shared_ptr引用计数，即使weak_ptr还存在，绑定的shared_ptr该销毁还是销毁。  </span><br><span class="line"></span><br><span class="line">使用lock()函数安全访问共享对象</span><br></pre></td></tr></table></figure>
+
+<p> if (shared_ptr<int> np = wp.lock()) { // 有并重新创建，这样就确保域内底层对象存在<br>        // np与p共享对象，使用np访问共享对象是安全的<br> }</int></p>
+<p>```</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/10/07/类中函数定义后接const/" rel="next" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/10/07/右值引用、移动语义的基本理解/" rel="prev" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#智能指针"><span class="nav-number">1.</span> <span class="nav-text">智能指针</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-shared-ptr类"><span class="nav-number">1.1.</span> <span class="nav-text">1.shared_ptr类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-动态内存和智能指针使用规范"><span class="nav-number">1.2.</span> <span class="nav-text">2. 动态内存和智能指针使用规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-unique-ptr类"><span class="nav-number">1.3.</span> <span class="nav-text">3.unique_ptr类</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Bing Yaokun</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="/707863710@qq.com" title="E-Mail &rarr; 707863710@qq.com"><i class="fa fa-fw fa-globe"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bing Yaokun</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.4.1</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

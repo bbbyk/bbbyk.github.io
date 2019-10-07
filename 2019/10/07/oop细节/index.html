@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="oop细节 基类应该定义虚析构函数  virtual ~Quote() = default; // 虚析构函数 基类应该定义的  析构函数必须是虚函数,因为在delete p的时候,p是指针是动态绑定的需要根据当前绑定的对象执行相应的析构函数,所以析构函数需要被继承重写,在delete的时候会想基类反向调用,一层一层执行相应的析构函数。 如果基类定义了静态成员，则整个继承体系只存在唯一实例。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/10/07/hello-world/index.html">
+<meta property="og:title" content="bbbyk&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/2019/10/07/oop细节/index.html">
 <meta property="og:site_name" content="bbbyk&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="oop细节 基类应该定义虚析构函数  virtual ~Quote() = default; // 虚析构函数 基类应该定义的  析构函数必须是虚函数,因为在delete p的时候,p是指针是动态绑定的需要根据当前绑定的对象执行相应的析构函数,所以析构函数需要被继承重写,在delete的时候会想基类反向调用,一层一层执行相应的析构函数。 如果基类定义了静态成员，则整个继承体系只存在唯一实例。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-07T08:45:39.818Z">
+<meta property="og:updated_time" content="2019-07-18T13:52:30.936Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-  <link rel="canonical" href="http://yoursite.com/2019/10/07/hello-world/">
+<meta name="twitter:title" content="bbbyk&#39;s Blog">
+<meta name="twitter:description" content="oop细节 基类应该定义虚析构函数  virtual ~Quote() = default; // 虚析构函数 基类应该定义的  析构函数必须是虚函数,因为在delete p的时候,p是指针是动态绑定的需要根据当前绑定的对象执行相应的析构函数,所以析构函数需要被继承重写,在delete的时候会想基类反向调用,一层一层执行相应的析构函数。 如果基类定义了静态成员，则整个继承体系只存在唯一实例。">
+  <link rel="canonical" href="http://yoursite.com/2019/10/07/oop细节/">
 
 
 <script id="page-configurations">
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title>Hello World | bbbyk's Blog</title>
+  <title> | bbbyk's Blog</title>
   
 
 
@@ -205,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/oop细节/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bing Yaokun">
@@ -217,7 +217,7 @@
       <meta itemprop="name" content="bbbyk's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Hello World
+        <h1 class="post-title" itemprop="name headline">
 
           
         </h1>
@@ -233,8 +233,20 @@
                 
               
 
-              <time title="Created: 2019-10-07 16:45:39" itemprop="dateCreated datePublished" datetime="2019-10-07T16:45:39+08:00">2019-10-07</time>
+              <time title="Created: 2019-10-07 17:53:03" itemprop="dateCreated datePublished" datetime="2019-10-07T17:53:03+08:00">2019-10-07</time>
             </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-07-18 21:52:30" itemprop="dateModified" datetime="2019-07-18T21:52:30+08:00">2019-07-18</time>
+              </span>
+            
           
 
           
@@ -248,19 +260,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="oop细节"><a href="#oop细节" class="headerlink" title="oop细节"></a>oop细节</h1><ul>
+<li>基类应该定义虚析构函数  virtual ~Quote() = default; // 虚析构函数 基类应该定义的<br>  析构函数必须是虚函数,因为在delete p的时候,p是指针是动态绑定的需要根据当前绑定的对象执行相应的析构函数,所以析构函数需要被继承重写,在delete的时候会想基类反向调用,一层一层执行相应的析构函数。</li>
+<li>如果基类定义了静态成员，则整个继承体系只存在唯一实例。  </li>
+<li>可以将基类的指针(包括智能指针)或引用绑定到派生类对象，实现<strong>动态绑定</strong>。  </li>
+<li><strong>回避虚函数机制</strong>：使用作用域强行执行特定版本baseP-&gt;Quote::net_price(42);  </li>
+<li>派生类的构造函数只能对直接基类初始化而简介基类不行，所以是层层初始化的关系。  </li>
+<li>派生访问说明符(基类前的public private)的目的是控制派生类用户(包括派生类的派生类)对于基类成员的访问权限，而不是此派生类对基类的访问权限(是由基类成员的访问说明符控制的)。  </li>
+<li><strong>基类接口设计</strong>: 基类的接口成员可以分为以下三种。外部使用的声明为public，供派生类访问的声明为protected，自己几自己的有元使用的声明为private。  </li>
+<li>使用using可以改变个别成员的可访问性</li>
+<li>在派生类中定义拷贝构造函数、复赋值运算符的过程中一定要显示的调用基类的复制构造函数和赋值运算符函数，否则对应的基类成员将执行默认初始化。  </li>
+<li>在C++11中，派生类能够重用基类的构造函数，通过在派生类中<strong>using <em>base</em>::<em>base</em></strong> 声明。等价为 <strong><em>derived(parms) : base(args){ }</em></strong></li>
+</ul>
 
     </div>
 
@@ -277,13 +288,17 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
+                <a href="/2019/10/07/hello-world/" rel="next" title="Hello World">
+                  <i class="fa fa-chevron-left"></i> Hello World
+                </a>
+              
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/10/07/oop细节/" rel="prev" title="">
+                <a href="/2019/10/07/extern 小结/" rel="prev" title="">
                    <i class="fa fa-chevron-right"></i>
                 </a>
               
@@ -331,7 +346,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#oop细节"><span class="nav-number">1.</span> <span class="nav-text">oop细节</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
