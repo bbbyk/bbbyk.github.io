@@ -201,6 +201,108 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/13/1223-Dice-Roll-Simulation-Medium/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bing Yaokun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bbbyk's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/10/13/1223-Dice-Roll-Simulation-Medium/" class="post-title-link" itemprop="url">1223. Dice Roll Simulation [Medium]</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-10-13 16:23:36" itemprop="dateCreated datePublished" datetime="2019-10-13T16:23:36+08:00">2019-10-13</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-14 21:58:28" itemprop="dateModified" datetime="2019-10-14T21:58:28+08:00">2019-10-14</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>A die simulator generates a random number from 1 to 6 for each roll. You introduced a constraint to the generator such that it cannot roll the number i more than rollMax[i] (1-indexed) consecutive times.</p>
+<p>Given an array of integers rollMax and an integer n, return the number of distinct sequences that can be obtained with exact n rolls.</p>
+<p>Two sequences are considered different if at least one element differs from each other. Since the answer may be too large, return it modulo 10^9 + 7.</p>
+<p>Input: n = 2, rollMax = [1,1,2,2,2,3]<br>Output: 34<br>Explanation: There will be 2 rolls of die, if there are no constraints on the die, there are 6 * 6 = 36 possible combinations. In this case, looking at rollMax array, the numbers 1 and 2 appear at most once consecutively, therefore sequences (1,1) and (2,2) cannot occur, so the final answer is 36-2 = 34.</p>
+<p>Constraints:</p>
+<ul>
+<li>1 &lt;= n &lt;= 5000</li>
+<li>rollMax.length == 6</li>
+<li>1 &lt;= rollMax[i] &lt;= 15</li>
+</ul>
+<p>本题目是Contest 158第3题，第一次做Leetcode的Contest只对了前两题，对第三题没有头绪，后经过discuss大佬的题解还是觉得分析清楚了并没想象中的那么难。<br><a href="https://leetcode.com/problems/dice-roll-simulation/discuss/403736/ChineseC%2B%2B-1223." title="[Chinese/C++] 1223. 【动态规划】有限制的掷骰子（详解）" target="_blank" rel="noopener">参考：　[Chinese/C++] 1223. 【动态规划】有限制的掷骰子（详解）</a></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/C++11新标准总结补充/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -281,264 +383,6 @@
 <li><p>时刻要注意auto并不是一个真正的类型。auto仅仅是一个占位符，它并不是一个真正的类型，不能使用一些以类型为操作数的操作符，如sizeof或者typeid。</p>
 </li>
 </ul>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/使用using改变个别成员的可访问性/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bing Yaokun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bbbyk's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/07/使用using改变个别成员的可访问性/" class="post-title-link" itemprop="url">Untitled</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-10-07 17:53:03" itemprop="dateCreated datePublished" datetime="2019-10-07T17:53:03+08:00">2019-10-07</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-07-17 21:19:53" itemprop="dateModified" datetime="2019-07-17T21:19:53+08:00">2019-07-17</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="使用using改变个别成员的可访问性"><a href="#使用using改变个别成员的可访问性" class="headerlink" title="使用using改变个别成员的可访问性"></a>使用using改变个别成员的可访问性</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">转载:https://www.cnblogs.com/nowhszh/p/11194039.html</span><br></pre></td></tr></table></figure>
-
-<p><strong>using改变成员的可访问性会带来歧义,尽量避免使用</strong>  </p>
-<h3 id="1-通过using将用户对基类成员的访问权限复原"><a href="#1-通过using将用户对基类成员的访问权限复原" class="headerlink" title="1.通过using将用户对基类成员的访问权限复原"></a>1.通过using将用户对基类成员的访问权限复原</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    int base_public;</span><br><span class="line">protected:</span><br><span class="line">    int base_protect;</span><br><span class="line">private:</span><br><span class="line">    int base_private;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Derive :private Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    using Base::base_public;</span><br><span class="line">protected:</span><br><span class="line">    using Base::base_protect;</span><br><span class="line">private:</span><br><span class="line">    //using Base::base_private; // error , 编译器报错 , 不可访问</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="2-通过using声明-做出一些不合常规的代码"><a href="#2-通过using声明-做出一些不合常规的代码" class="headerlink" title="2.通过using声明 , 做出一些不合常规的代码"></a>2.通过using声明 , 做出一些不合常规的代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#pragma warning (disable:4996)</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">class Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    int base_public = 1;</span><br><span class="line">protected:</span><br><span class="line">    int base_protect = 2;</span><br><span class="line">private:</span><br><span class="line">    int base_private = 3;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Derive :private Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    //在public作用域声明基类中的成员</span><br><span class="line">    using Base::base_public;</span><br><span class="line">    using Base::base_protect;</span><br><span class="line">    //using Base::base_private; // error , 编译器报错 , 不可访问</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    Derive test;</span><br><span class="line">    std::cout &lt;&lt; &quot;基类的公有成员: &quot;&lt;&lt; test.base_public &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; &quot;基类的保护成员: &quot; &lt;&lt; test.base_protect &lt;&lt; std::endl;</span><br><span class="line">    //std::cout &lt;&lt; &quot;基类的私有成员: &quot; &lt;&lt; test.base_private &lt;&lt; std::endl; //error , 不可访问</span><br><span class="line"></span><br><span class="line">    system(&quot;pause&quot;);</span><br><span class="line">    return EXIT_SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>代码中通过给基类的成员设定了默认初始值以便访问时显示 , 最终的运行结果如下  </p>
-<p>基类的公有成员: 1<br>基类的保护成员: 2<br>请按任意键继续. . .  </p>
-<p>代码中派生类继承时同样使用private的方式继承 , 然而我们把using声明放在了public权限下  , 由于 “ using声明语句中名字的访问权限由该using声明语句之前的访问说明符来决定” </p>
-<p>所以此时基类中的公有成员和保护成员都变成了派生类中的公有成员  , 也就是说通过using声明 , 我们通过私有继承的派生类 比 公有继承的访问权限反而更高  ! </p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/取余和取模/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bing Yaokun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bbbyk's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/07/取余和取模/" class="post-title-link" itemprop="url">Untitled</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-10-07 17:53:03" itemprop="dateCreated datePublished" datetime="2019-10-07T17:53:03+08:00">2019-10-07</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-06-19 11:23:24" itemprop="dateModified" datetime="2019-06-19T11:23:24+08:00">2019-06-19</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="取余和取模"><a href="#取余和取模" class="headerlink" title="取余和取模"></a>取余和取模</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>取余和取模当被除数是负数的时候两者有区别。<br>其运算过程一样：<br>求 整数商： c = a/b;计算模或者余数： r = a - c*b.  </p>
-<p> 但当a为负数的时候，在求商时取模是向负无穷的方向取商，而取余是向0方向取商，如-22/10 取余c = -2 取模c = -3；<br> 所以结果r会有不同，取余符号和c一致而取模和b一致。  </p>
-<h2 id="应用"><a href="#应用" class="headerlink" title="% 应用"></a>% 应用</h2><p>%在不同语言下会有出入，在C/C++ JAVA中%的含义是取余，而在python中%的含义是取模。  </p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/右值引用、移动语义的基本理解/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bing Yaokun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bbbyk's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/07/右值引用、移动语义的基本理解/" class="post-title-link" itemprop="url">Untitled</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-10-07 17:53:03" itemprop="dateCreated datePublished" datetime="2019-10-07T17:53:03+08:00">2019-10-07</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-07-21 20:22:37" itemprop="dateModified" datetime="2019-07-21T20:22:37+08:00">2019-07-21</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="右值引用、移动语义的基本理解"><a href="#右值引用、移动语义的基本理解" class="headerlink" title="右值引用、移动语义的基本理解"></a>右值引用、移动语义的基本理解</h1><p>在了解右值引用T&amp;&amp; 和移动std::move()的时候找到了一篇易懂的博客，整理以下供自己复习查看<br><a href="https://www.jianshu.com/p/d19fc8447eaa" target="_blank" rel="noopener">[c++11]我理解的右值引用、移动语义和完美转发</a>  </p>
-<h2 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h2><h3 id="左值、右值"><a href="#左值、右值" class="headerlink" title="左值、右值"></a>左值、右值</h3><p>鉴别方法：<strong>看能不能对表达式取地址，如果能，则为左值，否则为右值。</strong><br>统一的概括，左值指表达式结束后依然存在的持久化对象，右值是指表达式结束时就不再存在的临时对象。所有的具名变量或者对象都是左值，而右值不具名。  </p>
-<p>在右值中又分为好几种，<strong>纯右值</strong>就是c++98标准中右值的概念，如非引用返回的函数返回的临时变量值；一些运算表达式，如1+2产生的临时变量；不跟对象关联的字面量值，如2，’c’，true，”hello”；这些值都不能够被取地址。<strong>将亡值</strong>则是c++11新增的和右值引用相关的表达式，这样的表达式通常时将要移动的对象、T&amp;&amp;函数返回值、std::move()函数的返回值等。  </p>
-<p><strong>非引用返回的函数返回的临时变量值、非命名的变量都属于右值。</strong>  </p>
-<h3 id="左值引用、右值引用"><a href="#左值引用、右值引用" class="headerlink" title="左值引用、右值引用"></a>左值引用、右值引用</h3><p>左值引用的符号是 &amp; ，右值引用的符号是&amp;&amp;。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">A getTemp()</span><br><span class="line">&#123;</span><br><span class="line">    return A();</span><br><span class="line">&#125;</span><br><span class="line">A &amp;&amp; a = getTemp(); // 右值引用绑定右值</span><br><span class="line">const A &amp; a = getTemp(); // 左值引用绑定左值</span><br></pre></td></tr></table></figure>
-
-<p>这里在返回了一个临时的变量，通过右值绑定让这个临时变量不会马上终结而是与A的生命周期相同。<br>同常来讲右值引用只能绑定右值、左值引用只能绑定左值。但是<strong>常量左值引用</strong>是个特例，它可以绑定非常量左值、常量左值、右值。  </p>
-<h2 id="移动构造和移动赋值"><a href="#移动构造和移动赋值" class="headerlink" title="移动构造和移动赋值"></a>移动构造和移动赋值</h2><p>移动构造和移动赋值函数</p>
 
         
       
@@ -679,6 +523,174 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/右值引用、移动语义的基本理解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bing Yaokun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bbbyk's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/10/07/右值引用、移动语义的基本理解/" class="post-title-link" itemprop="url">Untitled</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-10-07 17:53:03" itemprop="dateCreated datePublished" datetime="2019-10-07T17:53:03+08:00">2019-10-07</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-07-21 20:22:37" itemprop="dateModified" datetime="2019-07-21T20:22:37+08:00">2019-07-21</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="右值引用、移动语义的基本理解"><a href="#右值引用、移动语义的基本理解" class="headerlink" title="右值引用、移动语义的基本理解"></a>右值引用、移动语义的基本理解</h1><p>在了解右值引用T&amp;&amp; 和移动std::move()的时候找到了一篇易懂的博客，整理以下供自己复习查看<br><a href="https://www.jianshu.com/p/d19fc8447eaa" target="_blank" rel="noopener">[c++11]我理解的右值引用、移动语义和完美转发</a>  </p>
+<h2 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h2><h3 id="左值、右值"><a href="#左值、右值" class="headerlink" title="左值、右值"></a>左值、右值</h3><p>鉴别方法：<strong>看能不能对表达式取地址，如果能，则为左值，否则为右值。</strong><br>统一的概括，左值指表达式结束后依然存在的持久化对象，右值是指表达式结束时就不再存在的临时对象。所有的具名变量或者对象都是左值，而右值不具名。  </p>
+<p>在右值中又分为好几种，<strong>纯右值</strong>就是c++98标准中右值的概念，如非引用返回的函数返回的临时变量值；一些运算表达式，如1+2产生的临时变量；不跟对象关联的字面量值，如2，’c’，true，”hello”；这些值都不能够被取地址。<strong>将亡值</strong>则是c++11新增的和右值引用相关的表达式，这样的表达式通常时将要移动的对象、T&amp;&amp;函数返回值、std::move()函数的返回值等。  </p>
+<p><strong>非引用返回的函数返回的临时变量值、非命名的变量都属于右值。</strong>  </p>
+<h3 id="左值引用、右值引用"><a href="#左值引用、右值引用" class="headerlink" title="左值引用、右值引用"></a>左值引用、右值引用</h3><p>左值引用的符号是 &amp; ，右值引用的符号是&amp;&amp;。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">A getTemp()</span><br><span class="line">&#123;</span><br><span class="line">    return A();</span><br><span class="line">&#125;</span><br><span class="line">A &amp;&amp; a = getTemp(); // 右值引用绑定右值</span><br><span class="line">const A &amp; a = getTemp(); // 左值引用绑定左值</span><br></pre></td></tr></table></figure>
+
+<p>这里在返回了一个临时的变量，通过右值绑定让这个临时变量不会马上终结而是与A的生命周期相同。<br>同常来讲右值引用只能绑定右值、左值引用只能绑定左值。但是<strong>常量左值引用</strong>是个特例，它可以绑定非常量左值、常量左值、右值。  </p>
+<h2 id="移动构造和移动赋值"><a href="#移动构造和移动赋值" class="headerlink" title="移动构造和移动赋值"></a>移动构造和移动赋值</h2><p>移动构造和移动赋值函数</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/取余和取模/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bing Yaokun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bbbyk's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/10/07/取余和取模/" class="post-title-link" itemprop="url">Untitled</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-10-07 17:53:03" itemprop="dateCreated datePublished" datetime="2019-10-07T17:53:03+08:00">2019-10-07</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-06-19 11:23:24" itemprop="dateModified" datetime="2019-06-19T11:23:24+08:00">2019-06-19</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="取余和取模"><a href="#取余和取模" class="headerlink" title="取余和取模"></a>取余和取模</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>取余和取模当被除数是负数的时候两者有区别。<br>其运算过程一样：<br>求 整数商： c = a/b;计算模或者余数： r = a - c*b.  </p>
+<p> 但当a为负数的时候，在求商时取模是向负无穷的方向取商，而取余是向0方向取商，如-22/10 取余c = -2 取模c = -3；<br> 所以结果r会有不同，取余符号和c一致而取模和b一致。  </p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="% 应用"></a>% 应用</h2><p>%在不同语言下会有出入，在C/C++ JAVA中%的含义是取余，而在python中%的含义是取模。  </p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/类中函数定义后接const/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -762,7 +774,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/delete 和 delete[]/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/使用using改变个别成员的可访问性/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bing Yaokun">
@@ -776,7 +788,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2019/10/07/delete 和 delete[]/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2019/10/07/使用using改变个别成员的可访问性/" class="post-title-link" itemprop="url">Untitled</a>
           
         </h1>
 
@@ -802,7 +814,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-05-09 20:36:34" itemprop="dateModified" datetime="2019-05-09T20:36:34+08:00">2019-05-09</time>
+                <time title="Modified: 2019-07-17 21:19:53" itemprop="dateModified" datetime="2019-07-17T21:19:53+08:00">2019-07-17</time>
               </span>
             
           
@@ -818,11 +830,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="delete-和-delete"><a href="#delete-和-delete" class="headerlink" title="delete 和 delete[]"></a>delete 和 delete[]</h1><p>对于简单类型，delete和delete []具有相同的效果，原因在于分配简单类型内存时，内存大小已经确定，系统可以记忆并且进行管理，在析构时，系统并不会调用析构函数。<br>对于自定义类型数组，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class A</span><br><span class="line">   &#123;</span><br><span class="line">   private:</span><br><span class="line">      char *m_cBuffer;</span><br><span class="line">      int m_nLen;</span><br><span class="line">   public:</span><br><span class="line">      A()&#123; m_cBuffer = new char[m_nLen]; &#125;</span><br><span class="line">      ~A() &#123; delete [] m_cBuffer; &#125;</span><br><span class="line">   &#125;;</span><br><span class="line">A *a = new A[10]</span><br><span class="line">delete a;</span><br><span class="line">delete []a;</span><br></pre></td></tr></table></figure>
+          <h1 id="使用using改变个别成员的可访问性"><a href="#使用using改变个别成员的可访问性" class="headerlink" title="使用using改变个别成员的可访问性"></a>使用using改变个别成员的可访问性</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">转载:https://www.cnblogs.com/nowhszh/p/11194039.html</span><br></pre></td></tr></table></figure>
 
-<p>使用delete a会释放a所指向的所有数组空间，但是析构只会调用A[0]的。也就是说对于A[1]~A[9]没有析构，其类中的m_cBuffer没有被删掉造成了内存泄露。<br>而delete []a会让a中的每个成员都进行析构。  </p>
-<p><strong>所以总结 都用delete [] 来删除数组不会出错</strong></p>
+<p><strong>using改变成员的可访问性会带来歧义,尽量避免使用</strong>  </p>
+<h3 id="1-通过using将用户对基类成员的访问权限复原"><a href="#1-通过using将用户对基类成员的访问权限复原" class="headerlink" title="1.通过using将用户对基类成员的访问权限复原"></a>1.通过using将用户对基类成员的访问权限复原</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    int base_public;</span><br><span class="line">protected:</span><br><span class="line">    int base_protect;</span><br><span class="line">private:</span><br><span class="line">    int base_private;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Derive :private Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    using Base::base_public;</span><br><span class="line">protected:</span><br><span class="line">    using Base::base_protect;</span><br><span class="line">private:</span><br><span class="line">    //using Base::base_private; // error , 编译器报错 , 不可访问</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-通过using声明-做出一些不合常规的代码"><a href="#2-通过using声明-做出一些不合常规的代码" class="headerlink" title="2.通过using声明 , 做出一些不合常规的代码"></a>2.通过using声明 , 做出一些不合常规的代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#pragma warning (disable:4996)</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">class Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    int base_public = 1;</span><br><span class="line">protected:</span><br><span class="line">    int base_protect = 2;</span><br><span class="line">private:</span><br><span class="line">    int base_private = 3;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Derive :private Base</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    //在public作用域声明基类中的成员</span><br><span class="line">    using Base::base_public;</span><br><span class="line">    using Base::base_protect;</span><br><span class="line">    //using Base::base_private; // error , 编译器报错 , 不可访问</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    Derive test;</span><br><span class="line">    std::cout &lt;&lt; &quot;基类的公有成员: &quot;&lt;&lt; test.base_public &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; &quot;基类的保护成员: &quot; &lt;&lt; test.base_protect &lt;&lt; std::endl;</span><br><span class="line">    //std::cout &lt;&lt; &quot;基类的私有成员: &quot; &lt;&lt; test.base_private &lt;&lt; std::endl; //error , 不可访问</span><br><span class="line"></span><br><span class="line">    system(&quot;pause&quot;);</span><br><span class="line">    return EXIT_SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码中通过给基类的成员设定了默认初始值以便访问时显示 , 最终的运行结果如下  </p>
+<p>基类的公有成员: 1<br>基类的保护成员: 2<br>请按任意键继续. . .  </p>
+<p>代码中派生类继承时同样使用private的方式继承 , 然而我们把using声明放在了public权限下  , 由于 “ using声明语句中名字的访问权限由该using声明语句之前的访问说明符来决定” </p>
+<p>所以此时基类中的公有成员和保护成员都变成了派生类中的公有成员  , 也就是说通过using声明 , 我们通过私有继承的派生类 比 公有继承的访问权限反而更高  ! </p>
 
         
       
@@ -904,6 +923,89 @@
           <h1 id="extern-小结"><a href="#extern-小结" class="headerlink" title="extern 小结"></a>extern 小结</h1><h2 id="1-变量共享"><a href="#1-变量共享" class="headerlink" title="1.变量共享"></a>1.变量共享</h2><p>C++语言支持分离式编译机制，该机制允许将程序分割为若干个文件，每个文件可被独立编译。为了将程序分为许多文件，则需要在文件中共享代码，例如一个文件的代码可能需要另一个文件中中定义的变量。<br>为了支持这种特性，C++支持声明和定义分开。变量的声明定义，一个文件如果要使用别处定义的名字则必须先声明。定义则只有一次。<br>声明一个共享变量 extern int i; 定义变量extern int i 和 extern int i = 1是等价的。  </p>
 <h2 id="2-多个文件中共享const"><a href="#2-多个文件中共享const" class="headerlink" title="2.多个文件中共享const"></a>2.多个文件中共享const</h2><p>有这样一种情况，有一个常量不是常量表达式。但又确实有必要在文件中共享防止重复的创建对象。这个时候需要在一个文件中定义 const，然后在多个文件中使用。<br>方法是对于const的声明和定义都使用extern关键字，而不是在定义的时候不加extern。  </p>
 <p>总结： 在常量与变量的extern用法中，声明与定义都使用extern就可以避免其间的差异。  </p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/delete 和 delete[]/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bing Yaokun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bbbyk's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/10/07/delete 和 delete[]/" class="post-title-link" itemprop="url">Untitled</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-10-07 17:53:03" itemprop="dateCreated datePublished" datetime="2019-10-07T17:53:03+08:00">2019-10-07</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-05-09 20:36:34" itemprop="dateModified" datetime="2019-05-09T20:36:34+08:00">2019-05-09</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="delete-和-delete"><a href="#delete-和-delete" class="headerlink" title="delete 和 delete[]"></a>delete 和 delete[]</h1><p>对于简单类型，delete和delete []具有相同的效果，原因在于分配简单类型内存时，内存大小已经确定，系统可以记忆并且进行管理，在析构时，系统并不会调用析构函数。<br>对于自定义类型数组，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class A</span><br><span class="line">   &#123;</span><br><span class="line">   private:</span><br><span class="line">      char *m_cBuffer;</span><br><span class="line">      int m_nLen;</span><br><span class="line">   public:</span><br><span class="line">      A()&#123; m_cBuffer = new char[m_nLen]; &#125;</span><br><span class="line">      ~A() &#123; delete [] m_cBuffer; &#125;</span><br><span class="line">   &#125;;</span><br><span class="line">A *a = new A[10]</span><br><span class="line">delete a;</span><br><span class="line">delete []a;</span><br></pre></td></tr></table></figure>
+
+<p>使用delete a会释放a所指向的所有数组空间，但是析构只会调用A[0]的。也就是说对于A[1]~A[9]没有析构，其类中的m_cBuffer没有被删掉造成了内存泄露。<br>而delete []a会让a中的每个成员都进行析构。  </p>
+<p><strong>所以总结 都用delete [] 来删除数组不会出错</strong></p>
 
         
       
@@ -1012,88 +1114,12 @@
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bing Yaokun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bbbyk's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/07/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-10-07 16:45:39" itemprop="dateCreated datePublished" datetime="2019-10-07T16:45:39+08:00">2019-10-07</time>
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
 
 
 
@@ -1137,7 +1163,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
