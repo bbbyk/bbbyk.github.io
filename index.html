@@ -201,6 +201,168 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/2019-10-17-interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bing Yaokun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bbbyk's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/10/17/2019-10-17-interview/" class="post-title-link" itemprop="url">C++ 面试知识点</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-10-17 19:29:00 / Modified: 19:30:41" itemprop="dateCreated datePublished" datetime="2019-10-17T19:29:00+08:00">2019-10-17</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Interview/" itemprop="url" rel="index"><span itemprop="name">Interview</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><p><strong>作用</strong>  </p>
+<ul>
+<li>修饰普通变量，修改变量的存储区域和生命周期，使变量存储在静态区，在 main 函数运行前就分配了空间，如果有初始值就用初始值初始化它，如果没有初始值系统用默认值初始化它。</li>
+<li>修饰普通函数，表明函数的作用范围，仅在定义该函数的文件内才能使用。在多人开发项目时，为了防止与他人命名空间里的函数重名，可以将函数定位为 static。</li>
+<li>修饰成员变量，修饰成员变量使所有的对象只保存一个该变量，而且不需要生成对象就可以访问该成员。</li>
+<li>修饰成员函数，修饰成员函数使得不需要生成对象就可以访问该函数，但是在 static 函数内不能访问非静态成员(不知道是哪个对象的成员)。   </li>
+</ul>
+<h2 id="inline函数"><a href="#inline函数" class="headerlink" title="inline函数"></a>inline函数</h2><p><strong>编辑器对inline函数的处理步骤</strong> (弱)</p>
+<ul>
+<li>将 inline 函数体复制到 inline 函数调用点处；</li>
+<li>为所用 inline 函数中的局部变量分配内存空间；</li>
+<li>将 inline 函数的的输入参数和返回值映射到调用方法的局部变量空间中；</li>
+<li>如果 inline 函数有多个返回点，将其转变为 inline 函数代码块末尾的分支（使用 GOTO）。</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>inline 函数无法随着函数库升级而升级。inline函数的改变需要重新编译，不像 non-inline 可以直接链接。</li>
+<li>是否内联，程序员不可控。内联函数只是对编译器的建议，是否对函数内联，决定权在于编译器。</li>
+</ul>
+<h2 id="虚函数可以是内联函数吗"><a href="#虚函数可以是内联函数吗" class="headerlink" title="虚函数可以是内联函数吗?"></a>虚函数可以是内联函数吗?</h2><ul>
+<li>虚函数可以是内联函数，内联是可以修饰虚函数的，但是当虚函数表现多态性的时候不能内联。</li>
+<li>内联是在编译器建议编译器内联，而虚函数的多态性在运行期，编译器无法知道运行期调用哪个代码，因此虚函数表现为多态性时（运行期）不可以内联。</li>
+<li>inline virtual 唯一可以内联的时候是：编译器知道所调用的对象是哪个类（如 Base::who()），这只有在编译器具有实际对象而不是对象的指针或引用时才会发生。</li>
+</ul>
+<h2 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h2><ul>
+<li>volatile 关键字是一种类型修饰符，用它声明的类型变量表示可以被某些编译器未知的因素（操作系统、硬件、其它线程等）更改。所以使用 volatile 告诉编译器不应对这样的对象进行优化。</li>
+<li>volatile并不能支持很多并发编程的特性，因为多线程多核中右各自不同的cache，优先还是在cahce中去取,并不能达到指定的效果。</li>
+</ul>
+<h2 id="extern-“C”"><a href="#extern-“C”" class="headerlink" title="extern “C”"></a>extern “C”</h2><ul>
+<li>被 extern 限定的函数或变量是 extern 类型的。</li>
+<li>被 extern “C” 修饰的变量和函数是按照 C 语言方式编译和链接的。</li>
+<li>extern “C” 的作用是让 C++ 编译器将 extern “C” 声明的代码当作 C 语言代码处理，可以避免 C++ 因符号修饰导致代码不能和C语言库中的符号进行链接的问题。</li>
+</ul>
+<h2 id="C实现C-类"><a href="#C实现C-类" class="headerlink" title="Ｃ实现Ｃ++类"></a>Ｃ实现Ｃ++类</h2><p>面向对象特性：封装、继承、多态。</p>
+<ul>
+<li>封装：使用函数指针把属性与方法封装到结构体中</li>
+<li>继承：结构体嵌套</li>
+<li>多态：父类与子类方法的函数指针不同(通过static function 改变原函数指针实现多态)</li>
+</ul>
+<h2 id="using-指示与-using声明"><a href="#using-指示与-using声明" class="headerlink" title="using 指示与 using声明"></a>using 指示与 using声明</h2><p>using指示是using namespace __ 在命名空间中所有名字都可见。using 声明是std::cout 或using std::cout。<strong>尽量少使用using指示 多使用using 声明</strong>。</p>
+<h2 id="decltype"><a href="#decltype" class="headerlink" title="decltype"></a>decltype</h2><ul>
+<li>对于函数返回的是函数返回类型，而对于左值是引用类型，要返回值类型使用remove_reference。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 尾置返回允许我们在参数列表之后声明返回类型</span><br><span class="line">template &lt;typename It&gt;</span><br><span class="line">auto fcn(It beg, It end) -&gt; decltype(*beg)</span><br><span class="line">&#123;</span><br><span class="line">    // 处理序列</span><br><span class="line">    return *beg;    // 返回序列中一个元素的引用</span><br><span class="line">&#125;</span><br><span class="line">// 为了使用模板参数成员，必须用 typename</span><br><span class="line">template &lt;typename It&gt;</span><br><span class="line">auto fcn2(It beg, It end) -&gt; typename remove_reference&lt;decltype(*beg)&gt;::type</span><br><span class="line">&#123;</span><br><span class="line">    // 处理序列</span><br><span class="line">    return *beg;    // 返回序列中一个元素的拷贝</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h2><p>右值引用就是必须绑定到右值（一个临时对象、将要销毁的对象）的引用，一般表示对象的值。</p>
+<h2 id="引用折叠规则"><a href="#引用折叠规则" class="headerlink" title="引用折叠规则"></a>引用折叠规则</h2><ul>
+<li>所有右值引用折叠到右值引用上仍然是一个右值引用。（A&amp;&amp; &amp;&amp; 变成 A&amp;&amp;）</li>
+<li>所有的其他引用类型之间的折叠都将变成左值引用。 （A&amp; &amp; 变成 A&amp;; A&amp; &amp;&amp; 变成 A&amp;; A&amp;&amp; &amp; 变成 A&amp;）</li>
+</ul>
+<h2 id="虚析构函数"><a href="#虚析构函数" class="headerlink" title="虚析构函数"></a>虚析构函数</h2><p>虚析构函数是为了解决基类的指针指向派生类对象，并用基类的指针删除派生类对象。<br>##虚函数和纯虚函数</p>
+<ul>
+<li>类里如果声明了虚函数，这个函数是实现的，哪怕是空实现，它的作用就是为了能让这个函数在它的子类里面可以被覆盖，这样的话，编译器就可以使用后期绑定来达到多态了。纯虚函数只是一个接口，是个函数的声明而已，它要留到子类里去实现。</li>
+<li>虚函数在子类里面也可以不重载的；但纯虚函数必须在子类去实现。<br>虚函数的类用于 “实作继承”，继承接口的同时也继承了父类的实现。当然大家也可以完成自己的实现。纯虚函数关注的是接口的统一性，实现由子类完成。</li>
+<li>带纯虚函数的类叫抽象类，这种类不能直接生成对象，而只有被继承，并重写其虚函数后，才能使用。抽象类被继承后，子类可以继续是抽象类，也可以是普通类。</li>
+<li>虚基类是虚继承中的基类，具体见下文虚继承。<h2 id="虚函数表和虚函数指针"><a href="#虚函数表和虚函数指针" class="headerlink" title="虚函数表和虚函数指针"></a>虚函数表和虚函数指针</h2></li>
+<li>虚函数指针：在含有虚函数类的对象中，指向虚函数表，在运行时确定。</li>
+<li>虚函数表：在程序只读数据段（<code>.rodata section</code>，见：<a href="https://github.com/huihut/interview#%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84" target="_blank" rel="noopener">目标文件存储结构</a>），存放虚函数指针，如果派生类实现了基类的某个虚函数，则在虚表中覆盖原本基类的那个虚函数指针，在编译时根据类的声明创建。</li>
+</ul>
+<h2 id="虚继承"><a href="#虚继承" class="headerlink" title="虚继承"></a>虚继承</h2><ul>
+<li><p>虚继承用于解决多继承条件下的菱形继承问题（浪费存储空间、存在二义性）。</p>
+</li>
+<li><p>底层实现原理与编译器相关，一般通过虚基类指针和虚基类表实现，每个虚继承的子类都有一个虚基类指针（占用一个指针的存储空间，4字节）和虚基类表（不占用类对象的存储空间）（需要强调的是，虚基类依旧会在子类里面存在拷贝，只是仅仅最多存在一份而已，并不是不在子类里面了）；当虚继承的子类被当做父类继承时，虚基类指针也会被继承。</p>
+</li>
+<li><p>实际上，vbptr 指的是虚基类表指针（virtual base table pointer），该指针指向了一个虚基类表（virtual table），虚表中记录了虚基类与本类的偏移地址；通过偏移地址，这样就找到了虚基类成员，而虚继承也不用像普通多继承那样维持着公共基类（虚基类）的两份同样的拷贝，节省了存储空间。</p>
+</li>
+</ul>
+<h2 id="抽象类、接口类、聚合类"><a href="#抽象类、接口类、聚合类" class="headerlink" title="抽象类、接口类、聚合类"></a>抽象类、接口类、聚合类</h2><ul>
+<li>抽象类：含有纯虚函数的类</li>
+<li>接口类：仅含有纯虚函数的抽象类</li>
+<li>聚合类：用户可以直接访问其成员，并且具有特殊的初始化语法形式。满足如下特点：<br>所有成员都是 public<br>没有定义任何构造函数<br>没有类内初始化<br>没有基类，也没有 virtual 函数</li>
+</ul>
+<h3 id="如何定义一个只能在堆上（栈上）生成对象的类？"><a href="#如何定义一个只能在堆上（栈上）生成对象的类？" class="headerlink" title="如何定义一个只能在堆上（栈上）生成对象的类？"></a>如何定义一个只能在堆上（栈上）生成对象的类？</h3><blockquote>
+<p><a href="https://www.nowcoder.com/questionTerminal/0a584aa13f804f3ea72b442a065a7618" target="_blank" rel="noopener">如何定义一个只能在堆上（栈上）生成对象的类?</a></p>
+</blockquote>
+<h4 id="只能在堆上"><a href="#只能在堆上" class="headerlink" title="只能在堆上"></a><a href="https://github.com/huihut/interview#%E5%8F%AA%E8%83%BD%E5%9C%A8%E5%A0%86%E4%B8%8A" target="_blank" rel="noopener"></a>只能在堆上</h4><p>方法：将析构函数设置为私有</p>
+<p>原因：C++ 是静态绑定语言，编译器管理栈上对象的生命周期，编译器在为类对象分配栈空间时，会先检查类的析构函数的访问性。若析构函数不可访问，则不能在栈上创建对象。</p>
+<h4 id="只能在栈上"><a href="#只能在栈上" class="headerlink" title="只能在栈上"></a><a href="https://github.com/huihut/interview#%E5%8F%AA%E8%83%BD%E5%9C%A8%E6%A0%88%E4%B8%8A" target="_blank" rel="noopener"></a>只能在栈上</h4><p>方法：将 new 和 delete 重载为私有</p>
+<p>原因：在堆上生成对象，使用 new 关键词操作，其过程分为两阶段：第一阶段，使用 new 在堆上寻找可用内存，分配给对象；第二阶段，调用构造函数生成对象。将 new 操作设置为私有，那么第一阶段就无法完成，就不能够在堆上生成对象。</p>
+<h3 id><a href="#" class="headerlink" title></a><a href="https://github.com/huihut/interview#%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88" target="_blank" rel="noopener"></a></h3>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/13/1223-Dice-Roll-Simulation-Medium/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -405,7 +567,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/智能指针和动态内存/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/取余和取模/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bing Yaokun">
@@ -419,7 +581,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2019/10/07/智能指针和动态内存/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2019/10/07/取余和取模/" class="post-title-link" itemprop="url">Untitled</a>
           
         </h1>
 
@@ -445,7 +607,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-14 17:06:06" itemprop="dateModified" datetime="2019-08-14T17:06:06+08:00">2019-08-14</time>
+                <time title="Modified: 2019-06-19 11:23:24" itemprop="dateModified" datetime="2019-06-19T11:23:24+08:00">2019-06-19</time>
               </span>
             
           
@@ -461,46 +623,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h1><p>防止使用动态内存的时候出现内存泄露和非法内存指针的出现，智能指针类能够自动的释放所指向的对象。<br>智能指针的三个类 shared_ptr允许多个指针指向同一个对象，unique_ptr独占指向的对象，以及weak_ptr指向shared_ptr所管理的对象。  </p>
-<h2 id="1-shared-ptr类"><a href="#1-shared-ptr类" class="headerlink" title="1.shared_ptr类"></a>1.shared_ptr类</h2><p>是一个模板类，使用方法与普通的指针使用方法相同。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// defined</span><br><span class="line">shared_ptr&lt;string&gt; p1;</span><br><span class="line">shared_ptr&lt;list&lt;int&gt;&gt; p2;</span><br></pre></td></tr></table></figure>
-
-<p>类中的get()方法要小心使用，返回保存的指针，但要使用的时候一定要确定智能指针没有释放对象。  </p>
-<p>make_shared&lt; Type &gt; (args)函数 在动态内存中定义并初始化，返回一个shared_ptr类型，通常使用auto类型来定义。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auto p = make_shared&lt;vector&lt;string&gt;&gt;();// 返回shared_ptr</span><br></pre></td></tr></table></figure>
-
-<p>shared_ptr中有一个计数器，拷贝这个智能指针时计数器就递增。当这个智能指针离开或者被赋予新值就递减。<br>shared_ptr自动摧毁所管理的对象调用对应的析构函数。  </p>
-<h2 id="2-动态内存和智能指针使用规范"><a href="#2-动态内存和智能指针使用规范" class="headerlink" title="2. 动态内存和智能指针使用规范"></a>2. 动态内存和智能指针使用规范</h2><ul>
-<li><p>使用new动态分配内置类型的对象时末尾添加<strong>()</strong>值初始化，不添加是默认初始化，通常是未定义的。  </p>
-</li>
-<li><p>delete之后以前相关的指针也不能再使用了，同常是在相应指针要摧毁时使用 delete释放内存。否则要手动将存储了相应指针的变量置空。  </p>
-</li>
-<li><p>shared_ptr和 new可以结合使用<br>shared_prt的构造函数是 explicit 声明，不能将一个内置指针隐式转化成一个智能指针。但是可以通过shared_ptr的构造函数显示传入。如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shared_ptr&lt;int&gt; p(new int(2014)); // 里外类型保持一致</span><br><span class="line">// shared_ptr&lt;T&gt; p(q, d) 定义p将使用可调用对象d来替代delete</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>不要混合使用普通指针和智能指针，使用内置指针来访问一个智能指针所负责的对象是很危险的，我们不知道对象何时被摧毁。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void process(shared_ptr&lt;int&gt; ptr)&#123;</span><br><span class="line">    //  使用ptr</span><br><span class="line">&#125; // ptr摧毁  引用计数--</span><br><span class="line"></span><br><span class="line">case 1:</span><br><span class="line">shared_ptr&lt;int&gt; p (new int(42)); //引用计数1</span><br><span class="line">process(p); // p拷贝给ptr 计数2</span><br><span class="line">int i =  *p; // 正确 在结束process函数和引用计数为1</span><br><span class="line"></span><br><span class="line">caes2:</span><br><span class="line">int *x(new int (1024)); // 危险情况，x是普通指针接下来与智能指针混用</span><br><span class="line">process(shared_ptr&lt;int&gt;(x)); // 合法，但内存被释放</span><br><span class="line">int j = *x; // 实参临时变量结束 x 被摧毁</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>不能使用get初始化另一个智能指针或为智能指针赋值<br>get函数返回内置指针，指向智能指针的管理对象。拿到这个内置指针后我们不能对其<strong>进行delete操作</strong>和<strong>以此指针初始化另一个新的智能指针</strong>。  </p>
-</li>
-<li><p>智能指针能确保抛出异常时也能成功释放内存。抛出异常时没有相应的catch则会结束这个函数，出了作用域智能指针的计数器会–。相对的，如果使用的是内置指针，很可能无法执行到delete的语句而造成内存再也无法释放了。  </p>
-</li>
-<li><p>如果使用智能指针管理的资源不是new分配的内存，记住传递给它一个删除器。  </p>
-</li>
-</ul>
-<h2 id="3-unique-ptr类"><a href="#3-unique-ptr类" class="headerlink" title="3.unique_ptr类"></a>3.unique_ptr类</h2><p>只能有一个unique_ptr类指向一个给定的对象，当unique_ptr被销毁时，他所指向的对象也被销毁。所以unique_ptr不支持拷贝和赋值操作。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">u.release() // u放弃对指针的控制权，返回指针并将u置空(内存不释放)</span><br><span class="line">u.reset() // 释放u指向的对象</span><br><span class="line">u.reset(q) // 内置指针q，u指向q并释放原内存</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">unique_ptr没有拷贝和赋值，但可以用以上的函数实现指针所有权的转移</span><br></pre></td></tr></table></figure>
-
-<p>// 所有权p1给p2<br>unique_ptr<string> p2(p1.release());<br>// p2给p3并释放原有内存<br>p2.reset(p3.release()); // reset释放p2原来指向的内存</string></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 传递unique_ptr参数和返回unique_ptr</span><br><span class="line">虽然说不能拷贝和赋值unique_ptr， 但有一个例外：**我们可以拷贝和赋值一个将要被摧毁的unqiue_ptr**。最常见的是从函数返回一个unique_ptr。(编译器知道将要返回的对象要被摧毁，使用的实际上是移动拷贝)</span><br></pre></td></tr></table></figure>
-
-<p>unique_ptr<int> clone(int p) {</int></p>
-<pre><code>return unique_ptr&lt;int&gt;(new int(p));</code></pre><p>}</p>
-<p>// 也可以返回局部变量<br>unique_ptr<int> clone(int p) {<br>    unique_ptr<int> ret(new int(p));<br>    // …<br>    return ret;<br>}</int></int></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 4.waek_ptr类</span><br><span class="line">weak_ptr是一种**不控制所指向对象生存期的智能指针**，指向一个shared_ptr对象，是**弱共享对象**。  </span><br><span class="line">绑定后不会改变shared_ptr引用计数，即使weak_ptr还存在，绑定的shared_ptr该销毁还是销毁。  </span><br><span class="line"></span><br><span class="line">使用lock()函数安全访问共享对象</span><br></pre></td></tr></table></figure>
-
-<p> if (shared_ptr<int> np = wp.lock()) { // 有并重新创建，这样就确保域内底层对象存在<br>        // np与p共享对象，使用np访问共享对象是安全的<br> }</int></p>
-<p>```</p>
+          <h1 id="取余和取模"><a href="#取余和取模" class="headerlink" title="取余和取模"></a>取余和取模</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>取余和取模当被除数是负数的时候两者有区别。<br>其运算过程一样：<br>求 整数商： c = a/b;计算模或者余数： r = a - c*b.  </p>
+<p> 但当a为负数的时候，在求商时取模是向负无穷的方向取商，而取余是向0方向取商，如-22/10 取余c = -2 取模c = -3；<br> 所以结果r会有不同，取余符号和c一致而取模和b一致。  </p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="% 应用"></a>% 应用</h2><p>%在不同语言下会有出入，在C/C++ JAVA中%的含义是取余，而在python中%的含义是取模。  </p>
 
         
       
@@ -610,7 +735,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/取余和取模/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/智能指针和动态内存/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bing Yaokun">
@@ -624,7 +749,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2019/10/07/取余和取模/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2019/10/07/智能指针和动态内存/" class="post-title-link" itemprop="url">Untitled</a>
           
         </h1>
 
@@ -650,7 +775,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-06-19 11:23:24" itemprop="dateModified" datetime="2019-06-19T11:23:24+08:00">2019-06-19</time>
+                <time title="Modified: 2019-08-14 17:06:06" itemprop="dateModified" datetime="2019-08-14T17:06:06+08:00">2019-08-14</time>
               </span>
             
           
@@ -666,9 +791,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="取余和取模"><a href="#取余和取模" class="headerlink" title="取余和取模"></a>取余和取模</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>取余和取模当被除数是负数的时候两者有区别。<br>其运算过程一样：<br>求 整数商： c = a/b;计算模或者余数： r = a - c*b.  </p>
-<p> 但当a为负数的时候，在求商时取模是向负无穷的方向取商，而取余是向0方向取商，如-22/10 取余c = -2 取模c = -3；<br> 所以结果r会有不同，取余符号和c一致而取模和b一致。  </p>
-<h2 id="应用"><a href="#应用" class="headerlink" title="% 应用"></a>% 应用</h2><p>%在不同语言下会有出入，在C/C++ JAVA中%的含义是取余，而在python中%的含义是取模。  </p>
+          <h1 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h1><p>防止使用动态内存的时候出现内存泄露和非法内存指针的出现，智能指针类能够自动的释放所指向的对象。<br>智能指针的三个类 shared_ptr允许多个指针指向同一个对象，unique_ptr独占指向的对象，以及weak_ptr指向shared_ptr所管理的对象。  </p>
+<h2 id="1-shared-ptr类"><a href="#1-shared-ptr类" class="headerlink" title="1.shared_ptr类"></a>1.shared_ptr类</h2><p>是一个模板类，使用方法与普通的指针使用方法相同。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// defined</span><br><span class="line">shared_ptr&lt;string&gt; p1;</span><br><span class="line">shared_ptr&lt;list&lt;int&gt;&gt; p2;</span><br></pre></td></tr></table></figure>
+
+<p>类中的get()方法要小心使用，返回保存的指针，但要使用的时候一定要确定智能指针没有释放对象。  </p>
+<p>make_shared&lt; Type &gt; (args)函数 在动态内存中定义并初始化，返回一个shared_ptr类型，通常使用auto类型来定义。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auto p = make_shared&lt;vector&lt;string&gt;&gt;();// 返回shared_ptr</span><br></pre></td></tr></table></figure>
+
+<p>shared_ptr中有一个计数器，拷贝这个智能指针时计数器就递增。当这个智能指针离开或者被赋予新值就递减。<br>shared_ptr自动摧毁所管理的对象调用对应的析构函数。  </p>
+<h2 id="2-动态内存和智能指针使用规范"><a href="#2-动态内存和智能指针使用规范" class="headerlink" title="2. 动态内存和智能指针使用规范"></a>2. 动态内存和智能指针使用规范</h2><ul>
+<li><p>使用new动态分配内置类型的对象时末尾添加<strong>()</strong>值初始化，不添加是默认初始化，通常是未定义的。  </p>
+</li>
+<li><p>delete之后以前相关的指针也不能再使用了，同常是在相应指针要摧毁时使用 delete释放内存。否则要手动将存储了相应指针的变量置空。  </p>
+</li>
+<li><p>shared_ptr和 new可以结合使用<br>shared_prt的构造函数是 explicit 声明，不能将一个内置指针隐式转化成一个智能指针。但是可以通过shared_ptr的构造函数显示传入。如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shared_ptr&lt;int&gt; p(new int(2014)); // 里外类型保持一致</span><br><span class="line">// shared_ptr&lt;T&gt; p(q, d) 定义p将使用可调用对象d来替代delete</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不要混合使用普通指针和智能指针，使用内置指针来访问一个智能指针所负责的对象是很危险的，我们不知道对象何时被摧毁。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void process(shared_ptr&lt;int&gt; ptr)&#123;</span><br><span class="line">    //  使用ptr</span><br><span class="line">&#125; // ptr摧毁  引用计数--</span><br><span class="line"></span><br><span class="line">case 1:</span><br><span class="line">shared_ptr&lt;int&gt; p (new int(42)); //引用计数1</span><br><span class="line">process(p); // p拷贝给ptr 计数2</span><br><span class="line">int i =  *p; // 正确 在结束process函数和引用计数为1</span><br><span class="line"></span><br><span class="line">caes2:</span><br><span class="line">int *x(new int (1024)); // 危险情况，x是普通指针接下来与智能指针混用</span><br><span class="line">process(shared_ptr&lt;int&gt;(x)); // 合法，但内存被释放</span><br><span class="line">int j = *x; // 实参临时变量结束 x 被摧毁</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不能使用get初始化另一个智能指针或为智能指针赋值<br>get函数返回内置指针，指向智能指针的管理对象。拿到这个内置指针后我们不能对其<strong>进行delete操作</strong>和<strong>以此指针初始化另一个新的智能指针</strong>。  </p>
+</li>
+<li><p>智能指针能确保抛出异常时也能成功释放内存。抛出异常时没有相应的catch则会结束这个函数，出了作用域智能指针的计数器会–。相对的，如果使用的是内置指针，很可能无法执行到delete的语句而造成内存再也无法释放了。  </p>
+</li>
+<li><p>如果使用智能指针管理的资源不是new分配的内存，记住传递给它一个删除器。  </p>
+</li>
+</ul>
+<h2 id="3-unique-ptr类"><a href="#3-unique-ptr类" class="headerlink" title="3.unique_ptr类"></a>3.unique_ptr类</h2><p>只能有一个unique_ptr类指向一个给定的对象，当unique_ptr被销毁时，他所指向的对象也被销毁。所以unique_ptr不支持拷贝和赋值操作。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">u.release() // u放弃对指针的控制权，返回指针并将u置空(内存不释放)</span><br><span class="line">u.reset() // 释放u指向的对象</span><br><span class="line">u.reset(q) // 内置指针q，u指向q并释放原内存</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">unique_ptr没有拷贝和赋值，但可以用以上的函数实现指针所有权的转移</span><br></pre></td></tr></table></figure>
+
+<p>// 所有权p1给p2<br>unique_ptr<string> p2(p1.release());<br>// p2给p3并释放原有内存<br>p2.reset(p3.release()); // reset释放p2原来指向的内存</string></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 传递unique_ptr参数和返回unique_ptr</span><br><span class="line">虽然说不能拷贝和赋值unique_ptr， 但有一个例外：**我们可以拷贝和赋值一个将要被摧毁的unqiue_ptr**。最常见的是从函数返回一个unique_ptr。(编译器知道将要返回的对象要被摧毁，使用的实际上是移动拷贝)</span><br></pre></td></tr></table></figure>
+
+<p>unique_ptr<int> clone(int p) {</int></p>
+<pre><code>return unique_ptr&lt;int&gt;(new int(p));</code></pre><p>}</p>
+<p>// 也可以返回局部变量<br>unique_ptr<int> clone(int p) {<br>    unique_ptr<int> ret(new int(p));<br>    // …<br>    return ret;<br>}</int></int></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 4.waek_ptr类</span><br><span class="line">weak_ptr是一种**不控制所指向对象生存期的智能指针**，指向一个shared_ptr对象，是**弱共享对象**。  </span><br><span class="line">绑定后不会改变shared_ptr引用计数，即使weak_ptr还存在，绑定的shared_ptr该销毁还是销毁。  </span><br><span class="line"></span><br><span class="line">使用lock()函数安全访问共享对象</span><br></pre></td></tr></table></figure>
+
+<p> if (shared_ptr<int> np = wp.lock()) { // 有并重新创建，这样就确保域内底层对象存在<br>        // np与p共享对象，使用np访问共享对象是安全的<br> }</int></p>
+<p>```</p>
 
         
       
@@ -864,87 +1026,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/extern 小结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bing Yaokun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bbbyk's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/07/extern 小结/" class="post-title-link" itemprop="url">Untitled</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-10-07 17:53:03" itemprop="dateCreated datePublished" datetime="2019-10-07T17:53:03+08:00">2019-10-07</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-06-14 15:55:13" itemprop="dateModified" datetime="2019-06-14T15:55:13+08:00">2019-06-14</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="extern-小结"><a href="#extern-小结" class="headerlink" title="extern 小结"></a>extern 小结</h1><h2 id="1-变量共享"><a href="#1-变量共享" class="headerlink" title="1.变量共享"></a>1.变量共享</h2><p>C++语言支持分离式编译机制，该机制允许将程序分割为若干个文件，每个文件可被独立编译。为了将程序分为许多文件，则需要在文件中共享代码，例如一个文件的代码可能需要另一个文件中中定义的变量。<br>为了支持这种特性，C++支持声明和定义分开。变量的声明定义，一个文件如果要使用别处定义的名字则必须先声明。定义则只有一次。<br>声明一个共享变量 extern int i; 定义变量extern int i 和 extern int i = 1是等价的。  </p>
-<h2 id="2-多个文件中共享const"><a href="#2-多个文件中共享const" class="headerlink" title="2.多个文件中共享const"></a>2.多个文件中共享const</h2><p>有这样一种情况，有一个常量不是常量表达式。但又确实有必要在文件中共享防止重复的创建对象。这个时候需要在一个文件中定义 const，然后在多个文件中使用。<br>方法是对于const的声明和定义都使用extern关键字，而不是在定义的时候不加extern。  </p>
-<p>总结： 在常量与变量的extern用法中，声明与定义都使用extern就可以避免其间的差异。  </p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/delete 和 delete[]/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1028,7 +1109,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/oop细节/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/extern 小结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bing Yaokun">
@@ -1042,7 +1123,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2019/10/07/oop细节/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2019/10/07/extern 小结/" class="post-title-link" itemprop="url">Untitled</a>
           
         </h1>
 
@@ -1068,7 +1149,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-07-18 21:52:30" itemprop="dateModified" datetime="2019-07-18T21:52:30+08:00">2019-07-18</time>
+                <time title="Modified: 2019-06-14 15:55:13" itemprop="dateModified" datetime="2019-06-14T15:55:13+08:00">2019-06-14</time>
               </span>
             
           
@@ -1084,18 +1165,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="oop细节"><a href="#oop细节" class="headerlink" title="oop细节"></a>oop细节</h1><ul>
-<li>基类应该定义虚析构函数  virtual ~Quote() = default; // 虚析构函数 基类应该定义的<br>  析构函数必须是虚函数,因为在delete p的时候,p是指针是动态绑定的需要根据当前绑定的对象执行相应的析构函数,所以析构函数需要被继承重写,在delete的时候会想基类反向调用,一层一层执行相应的析构函数。</li>
-<li>如果基类定义了静态成员，则整个继承体系只存在唯一实例。  </li>
-<li>可以将基类的指针(包括智能指针)或引用绑定到派生类对象，实现<strong>动态绑定</strong>。  </li>
-<li><strong>回避虚函数机制</strong>：使用作用域强行执行特定版本baseP-&gt;Quote::net_price(42);  </li>
-<li>派生类的构造函数只能对直接基类初始化而简介基类不行，所以是层层初始化的关系。  </li>
-<li>派生访问说明符(基类前的public private)的目的是控制派生类用户(包括派生类的派生类)对于基类成员的访问权限，而不是此派生类对基类的访问权限(是由基类成员的访问说明符控制的)。  </li>
-<li><strong>基类接口设计</strong>: 基类的接口成员可以分为以下三种。外部使用的声明为public，供派生类访问的声明为protected，自己几自己的有元使用的声明为private。  </li>
-<li>使用using可以改变个别成员的可访问性</li>
-<li>在派生类中定义拷贝构造函数、复赋值运算符的过程中一定要显示的调用基类的复制构造函数和赋值运算符函数，否则对应的基类成员将执行默认初始化。  </li>
-<li>在C++11中，派生类能够重用基类的构造函数，通过在派生类中<strong>using <em>base</em>::<em>base</em></strong> 声明。等价为 <strong><em>derived(parms) : base(args){ }</em></strong></li>
-</ul>
+          <h1 id="extern-小结"><a href="#extern-小结" class="headerlink" title="extern 小结"></a>extern 小结</h1><h2 id="1-变量共享"><a href="#1-变量共享" class="headerlink" title="1.变量共享"></a>1.变量共享</h2><p>C++语言支持分离式编译机制，该机制允许将程序分割为若干个文件，每个文件可被独立编译。为了将程序分为许多文件，则需要在文件中共享代码，例如一个文件的代码可能需要另一个文件中中定义的变量。<br>为了支持这种特性，C++支持声明和定义分开。变量的声明定义，一个文件如果要使用别处定义的名字则必须先声明。定义则只有一次。<br>声明一个共享变量 extern int i; 定义变量extern int i 和 extern int i = 1是等价的。  </p>
+<h2 id="2-多个文件中共享const"><a href="#2-多个文件中共享const" class="headerlink" title="2.多个文件中共享const"></a>2.多个文件中共享const</h2><p>有这样一种情况，有一个常量不是常量表达式。但又确实有必要在文件中共享防止重复的创建对象。这个时候需要在一个文件中定义 const，然后在多个文件中使用。<br>方法是对于const的声明和定义都使用extern关键字，而不是在定义的时候不加extern。  </p>
+<p>总结： 在常量与变量的extern用法中，声明与定义都使用extern就可以避免其间的差异。  </p>
 
         
       
@@ -1163,7 +1235,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1176,7 +1248,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span>
         </a>
       </div>
