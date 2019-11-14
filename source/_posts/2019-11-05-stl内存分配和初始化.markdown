@@ -1,0 +1,55 @@
+---
+layout: "post"
+title: "STL内存分配和初始化"
+date: "2019-11-05 16:51"
+category: "STL源码剖析"
+---
+对于在C++通常使用的new称为new operator,实际过程包含1.调用::operator new配置内存 2.调用相应的构造函数初始化。对于delete来说过程也是类似的。  
+在STL中，为了精密分工通常是把**空间配置**和**初始化**分开来，内存配置由alloc::allocate()和alloc::deallocate()负责。初始化由::construct()和::destroy()负责。  
+
+## STL内存分配和初始化总览
+ <memory>义allocator
+* <stl_construct.h> 这里定义了全局函数construct()和destroy。
+* <stl_alloc.h> 定义一二级空间适配器。
+* <stl_uninitialized.h> 定义函数用来填充和复制大内存的数据，通常对于未初始化的空间使用。细粒度的考虑效率，最差的情况是使用construct()，最佳则直接使用memmove()相比要快很多。  
+
+## 构造的基本工具construct()和destroy()
+细粒度的考虑不同情况来提升效率。  
+对于construct()，简单的使用palacement new来进行构造。而在destroy()则要复杂的多。首先利用模板，根据迭代器的value_type生成相应的函数__destroy。在_destroy中又根据value_type的类型看其是否是trival_destructor（指析构是否要处理对象中指针所指区域），是则调用自己的析构函数，不是则不用做任何处理。最后再对常用的内置类型指针做特化版本。
+
+## 空间的配置与释放
+注意：先不考虑多线程情况。
+空间配置器我们着重解决两个问题：
+* 内存不足时如何处理。
+* 防止过多小型块造成的**内存碎片**问题。
+
+在SGI STL中采用两个空间配置器，第一级配置器主要解决普通的分配释放和内存不足处理问题。第二季在第一级的基础上考虑了小型块碎片的问题，采用内存池解决。  
+### 一级配置器
+使用最原始的malloc和realloc函数进行内存分配，注意的地方主要在于内存空间不够分配失败时使用自定义handler去释放内存，提供一个接口自定义处理函数，设计思路值得借鉴。  
+### 二级配置器
+重点解决内存碎片问题和内存分配效率问题。  
+#### 数据结构：
+
+```
+static obj * volatile free_list[__NFREELISTS]; // 16个节点
+union obj // freelists节点构造
+    {
+        union obj* free_list_link; // 未使用区块
+        char client_data[1];
+    };
+```
+使用union obj来作为区块指针链表维护各个节点的区块，避免指针带来的内存消耗，当块空闲后将块头8个字节变成union obj并设置free_list_link来实现空闲链表维护，而使用区块后则正常使用，覆盖头8字节。  
+由于union obj的存在，区块大小从8字节开始，并以8字节递增直到128bytes（页表4k）。free_lists[]维护所有区块头结点。  
+#### 内部函数
+```
+static void *refill(size_t n); // 返回一个大小为n的区块
+static char *chunk_alloc(size_t size, int &nobjs); // 配置n个size大小区块，若不够则可能降低nobjs
+```
+当对应大小区块不足时，调用refill来补充区块并返回第一个区块给用户使用（补充块数默认20)，再将剩下的新产生空闲区块链起来即可。  
+chunk_alloc函数负责内存池的实现并配置refill需要的区块，整个chunk_alloc基于极致内存的使用，考虑到了许多情况：
+* 满足需求量则返回
+* 不满足需求量，但是还能供应一个以上的区块，返回并更改实际配置的区块数。
+* 内存池中连一个块都不能提供，则充分利用内存池剩余的空间分配给更小的块区域。（新malloc之前把已有的都用出去）
+* malloc空间，若malloc失败，则考虑将更大的空闲区块拆分，符合部分插入内存池中，而剩余部分重新编入更小的free_lists中（并不是本次完成）。(思考：更小组重新聚合编入是否能更减少异常情况？或者malloc异常出现较少？)  
+* 若malloc和拆分都不行，则只有交给一级配置器（因为其有异常处理handler函数，说不定有办法。  
+**思考：** 在整个二级适配器中，没有看到将内存还给系统(free)。也就是说，过多的申请小块会造成内存固定无法返还系统的情况。
